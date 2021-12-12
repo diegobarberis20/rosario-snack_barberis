@@ -2,5 +2,10 @@
     height: 70px;
     width: auto;
     border-radius: 100px;
-    padding-right: 10px;
+    margin-right: 10px;
+}
+
+.titulo{
+    color: white;
+    margin-right: 15px;
 }
