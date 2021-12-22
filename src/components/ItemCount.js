@@ -27,14 +27,14 @@ const ItemCount = ({stock, initial, onAdd}) => {
                              
                     <span><strong>Cantidad </strong>(stock disponible: {stock})</span>
                     <div className="input-group col-auto">
-                        <div class="input-group-prepend" onClick={disminuirContador}>
-                            <div class="input-group-text bg-primary text-white">-</div>
+                        <div className="input-group-prepend" onClick={disminuirContador}>
+                            <div className="input-group-text bg-primary text-white">-</div>
                         </div>
                         
                         <input type="text" className="form-control" value={contador}/>
 
-                        <div class="input-group-append" onClick={aumentarContador}>
-                            <div class="input-group-text bg-primary text-white">+</div>
+                        <div className="input-group-append" onClick={aumentarContador}>
+                            <div className="input-group-text bg-primary text-white">+</div>
                         </div>
                     </div>
                                                
