@@ -1,29 +1,22 @@
 import { useEffect, useState } from "react";
-import ItemList from "./ItemList";
-import productosJSON from "./../productos.json"
+import ItemDetail from "./ItemDetail";
 
+const ItemDetalContainer = ({productoJSON}) => {
 
-const ItemListContainer = (greeting) => {
-
-    const productos = productosJSON;
-
+    const [producto,setProducto] = useState(productoJSON);
     const [loading,setLoading] = useState(true);
-
-    // const [productos, setProductos] = useState([])
 
     useEffect(() => {
 
         const promesa = new Promise((res,rej)=>{
             setTimeout(() => {
-                    res(productos);
+                    res(producto);
             }, 2000);
         });
-    
         
-        promesa.then((productos)=>{
-                        
-                        console.log(productos);
+        promesa.then((productoJSON)=>{
                         setLoading(false);
+                        setProducto(productoJSON);
         })
 
     }, [])
@@ -31,21 +24,18 @@ const ItemListContainer = (greeting) => {
     if(loading){
         return (
             <>
-                <h1>{greeting.saludo}</h1>
                 <h1>Cargando...</h1>
  
             </>
         )
     }else{
-
-        return (
+        return (        
             <>
-                <h1>{greeting.saludo}</h1>
                 
                 <div className="container">
                     <div className="row">
                         
-                            <ItemList productos={productos}/>
+                            <ItemDetail producto={producto}/>
                             
                     </div>
                 </div>
@@ -58,4 +48,4 @@ const ItemListContainer = (greeting) => {
        
 }
 
-export default ItemListContainer
+export default ItemDetalContainer

@@ -5,6 +5,7 @@
     margin-right: 10px;
 }
 
+
 .titulo{
     color: white;
     margin-right: 15px;
@@ -12,4 +13,26 @@
 
 .btn-acumulador{
     width: 38px;
+}
+
+
+.contenedorProducto{
+    border-radius: 15px;
+    box-shadow: 10px 10px 5px 0px rgba(217,216,216,0.75);
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(217,216,216,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(217,216,216,0.75);
+}
+
+.imagenProducto{
+    height: 450px;
+    width: auto;
+    border:1px solid rgb(150, 150, 150);
+    border-radius: 15px;
+    padding: 20px;
+}
+
+.imagenProducto img{
+    height: auto;
+    width: auto;
+    border-radius: 15px;
 }
