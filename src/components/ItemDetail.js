@@ -1,11 +1,13 @@
+import ItemCount from "./ItemCount.js";
+
 const ItemDetail = ({producto, idProducto}) => {
 
     // console.log(producto);
     // console.log(idProducto);
     
 
-    // if(idProducto = producto.id)
-    // {
+    if(idProducto = producto.id)
+    {
         return (
             <div className="container-fluid p-5 my-4 contenedorProducto">
                 <div className="row justify-content-center justify-content-sm-around">
@@ -22,14 +24,14 @@ const ItemDetail = ({producto, idProducto}) => {
             </div>
         )
 
-    // }else{
+    }else{
 
-    //     return(
-    //         <>
-    //         </>
-    //     );
+        return(
+            <>
+            </>
+        );
 
-    // }
+    }
     
 }
 
