@@ -1,7 +1,9 @@
 
 import NavBar from "./components/NavBar";
+import Main from "./components/Main";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
+import { BrowserRouter } from "react-router-dom";
 
 function App(){
 
@@ -14,11 +16,12 @@ function App(){
                      }
 
     return (
-        <>
+        <BrowserRouter>
             <NavBar/>
-            <ItemListContainer saludo={saludoInicial}/>
-            <ItemDetailContainer productoJSON={productoJSON}/>
-        </>
+            <Main saludo={saludoInicial}></Main>
+            {/* <ItemListContainer/>
+            <ItemDetailContainer productoJSON={productoJSON}/> */}
+        </BrowserRouter>       
     )
 }
 

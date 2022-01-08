@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import productosJSON from "./../productos.json"
+import { useParams } from "react-router-dom";
 
 
-const ItemListContainer = (greeting) => {
+const ItemListContainer = () => {
 
     const productos = productosJSON;
-
     const [loading,setLoading] = useState(true);
+    const {id} = useParams();
 
     // const [productos, setProductos] = useState([])
 
@@ -20,38 +21,34 @@ const ItemListContainer = (greeting) => {
         });
     
         
-        promesa.then((productos)=>{
-                        
-                        console.log(productos);
+        promesa.then((productos)=>{                   
+                        // console.log(productos);
                         setLoading(false);
         })
 
-    }, [])
+    }, [id])
  
     if(loading){
         return (
             <>
-                <h1>{greeting.saludo}</h1>
                 <h1>Cargando...</h1>
  
             </>
         )
     }else{
 
-        return (
-            <>
-                <h1>{greeting.saludo}</h1>
-                
-                <div className="container">
-                    <div className="row">
-                        
-                            <ItemList productos={productos}/>
+         return (
+                <>                
+                    <div className="container">
+                        <div className="row">
                             
+                                <ItemList productos={productos} idCategoria={id}/>
+                                
+                        </div>
                     </div>
-                </div>
-                
-            </>
-        )
+                    
+                </>
+            )     
 
     }
     

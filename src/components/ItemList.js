@@ -1,15 +1,29 @@
 import Item from './Item.js';
 import ItemCount from "./ItemCount";
 
-const ItemList = ({productos}) => {
+const ItemList = ({productos, idCategoria}) => {
 
     return(
         productos.map((producto)=>{
 
-            return (                           
+
+             // Cuando se seleccionó una categoria
+            if(idCategoria == producto.categoria)
+            {
+                return (                           
                     <Item producto={producto} count={<ItemCount stock={producto.stock} initial={1}/>}/>                                 
-            )
-    
+                )
+
+            }
+
+            // Cuando no se seleccionó una categoria
+            if(idCategoria == undefined)
+            {
+                return (                           
+                    <Item producto={producto} count={<ItemCount stock={producto.stock} initial={1}/>}/>                                 
+                )
+            }
+
         },[])
     )
  
