@@ -4,6 +4,7 @@
             "categoria": 2,
             "name": "Producto 1",
             "stock": 8,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 150
         },
         {
@@ -11,6 +12,7 @@
             "categoria": 1,
             "name": "Producto 2",
             "stock": 4,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 200
         },
         {
@@ -18,6 +20,7 @@
             "categoria": 1,
             "name": "Producto 3",
             "stock": 2,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 100
         },
         {
@@ -25,6 +28,7 @@
             "categoria": 1,
             "name": "Producto 4",
             "stock": 5,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 110
         },
         {
@@ -32,6 +36,7 @@
             "categoria": 1,
             "name": "Producto 5",
             "stock": 5,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 1100
         },
         {
@@ -39,6 +44,7 @@
             "categoria": 2,
             "name": "Producto 6",
             "stock": 8,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 11
         },
         {
@@ -46,6 +52,7 @@
             "categoria": 2,
             "name": "Producto 7",
             "stock": 10,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 80
         },
         {
@@ -53,6 +60,7 @@
             "categoria": 1,
             "name": "Producto 8",
             "stock": 5,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 1125
         },
         {
@@ -60,6 +68,7 @@
             "categoria": 1,
             "name": "Producto 9",
             "stock": 7,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 125
         },
         {
@@ -67,6 +76,7 @@
             "categoria": 2,
             "name": "Producto 10",
             "stock": 3,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 452
         },
         {
@@ -74,6 +84,7 @@
             "categoria": 2,
             "name": "Producto 11",
             "stock": 11,
+            "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
             "precio": 852
         }
 

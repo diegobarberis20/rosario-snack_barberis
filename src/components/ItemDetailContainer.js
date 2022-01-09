@@ -1,10 +1,10 @@
-import { useEffect, useState } from "react";
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
 
-const ItemDetalContainer = ({productoJSON}) => {
+const ItemDetalContainer = ({productosJSON}) => {
 
-    const [producto,setProducto] = useState(productoJSON);
+    const [producto,setProducto] = useState(false);
     const [loading,setLoading] = useState(true);
     const {id} = useParams();
 
@@ -12,44 +12,36 @@ const ItemDetalContainer = ({productoJSON}) => {
 
         const promesa = new Promise((res,rej)=>{
             setTimeout(() => {
-                    res(producto);
+                    res(productosJSON);
             }, 2000);
         });
         
-        promesa.then((productoJSON)=>{
-                        setLoading(false);
-                        setProducto(productoJSON);
+        promesa.then((productosJSON)=>{
+            const resultadoObtenido = productosJSON.find( item => item.id == id );
+            setLoading(false);
+            setProducto(resultadoObtenido)  
         })
 
     }, [id])
-
-    console.log(producto)
- 
     if(loading){
-        return (
-            <>
-                <h1>Cargando...</h1>
- 
-            </>
-        )
+                return (
+                    <>
+                        <h1>Cargando...</h1> 
+                    </>
+                )
     }else{
-        return (        
-            <>
-                
-                <div className="container">
-                    <div className="row">
-                        
-                            <ItemDetail producto={producto} idProducto={id} />
-                            
-                    </div>
-                </div>
-                
-            </>
-        )
-
-    }
-    
-       
+                return (    
+                            <>                  
+                                <div className="container">
+                                    <div className="row">
+                                        
+                                            <ItemDetail producto={producto} />
+                                            
+                                    </div>
+                                </div>                     
+                            </>       
+                    )               
+         }     
 }
 
 export default ItemDetalContainer

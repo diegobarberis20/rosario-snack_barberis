@@ -15,7 +15,7 @@ const Item = ({producto, count}) => {
                                         <div className="col-auto">
 
                                             {/* Seccion de count y boton agregar al carrito */}
-                                             <div className="pt-4">{count}</div>
+                                            <div className="pt-4">{count}</div>
 
                                             {/* Link a ver mas */}
                                             <Link to={"/item/"+producto.id}>

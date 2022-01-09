@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import productosJSON from "./../productos.json"
+import productosJSON from "./../productos.json";
 import { useParams } from "react-router-dom";
 
 
@@ -19,10 +19,8 @@ const ItemListContainer = () => {
                     res(productos);
             }, 2000);
         });
-    
-        
-        promesa.then((productos)=>{                   
-                        // console.log(productos);
+      
+        promesa.then(()=>{                   
                         setLoading(false);
         })
 

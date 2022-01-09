@@ -36,9 +36,7 @@ const ItemCount = ({stock, initial, onAdd}) => {
                             </div>
                         </div>
 
-                        <Link to="/dfasd">
-                            <button className="btn btn-success w-100 mt-2">Agregar a carrito</button>
-                        </Link>
+                        <button className="btn btn-success w-100 mt-2">Comprar</button>
                 </>       
     )
 }
