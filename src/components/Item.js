@@ -11,11 +11,11 @@ const Item = ({producto, count}) => {
                                 <p className="card-body text-center mb-0 p-0"><strong>Precio:</strong> ${producto.precio}</p>
 
                                 <div className="container-fluid mt-2">
-                                    <div className="row">
+                                    <div className="row justify-content-center">
                                         <div className="col-auto">
 
                                             {/* Seccion de count y boton agregar al carrito */}
-                                            <div className="pt-4">{count}</div>
+                                            {/* <div className="pt-4">{count}</div> */}
 
                                             {/* Link a ver mas */}
                                             <Link to={"/item/"+producto.id}>

@@ -1,5 +1,5 @@
 import Item from './Item.js';
-import ItemCount from "./ItemCount";
+// import ItemCount from "./ItemCount";
 
 const ItemList = ({productos, idCategoria}) => {
 
@@ -11,7 +11,7 @@ const ItemList = ({productos, idCategoria}) => {
             if(idCategoria == producto.categoria)
             {
                 return (                           
-                    <Item producto={producto} count={<ItemCount stock={producto.stock} initial={1}/>}/>                                 
+                    <Item producto={producto}/>                                 
                 )
 
             }
@@ -20,7 +20,7 @@ const ItemList = ({productos, idCategoria}) => {
             if(idCategoria == undefined)
             {
                 return (                           
-                    <Item producto={producto} count={<ItemCount stock={producto.stock} initial={1}/>}/>                                 
+                    <Item producto={producto}/>                                 
                 )
             }
 

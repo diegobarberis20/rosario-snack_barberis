@@ -2,6 +2,7 @@ import ItemListContainer from "./ItemListContainer"
 import ItemDetailContainer from "./ItemDetailContainer";
 import productosJSON from "./../productos.json"
 import { Routes, Route } from "react-router-dom";
+import Carrito from "./Carrito";
 
 const Main = ({ saludo }) => {
 
@@ -23,7 +24,7 @@ const Main = ({ saludo }) => {
                 <Route path="/" element={<ItemListContainer/>}/>
                 <Route path="/category/:id" element={<ItemListContainer/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer productosJSON={productosJSON}/>}/>
-                <Route path="/carrito" element=""/>
+                <Route path="/cart" element={<Carrito/>}/>
             </Routes>
 
         </main>

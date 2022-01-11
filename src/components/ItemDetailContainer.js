@@ -9,7 +9,6 @@ const ItemDetalContainer = ({productosJSON}) => {
     const {id} = useParams();
 
     useEffect(() => {
-
         const promesa = new Promise((res,rej)=>{
             setTimeout(() => {
                     res(productosJSON);
@@ -21,8 +20,8 @@ const ItemDetalContainer = ({productosJSON}) => {
             setLoading(false);
             setProducto(resultadoObtenido)  
         })
-
     }, [id])
+
     if(loading){
                 return (
                     <>
