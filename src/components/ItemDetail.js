@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { contexto } from "./CartContext";
 import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const ItemDetail = ({producto}) => {  
 
@@ -14,6 +15,7 @@ const ItemDetail = ({producto}) => {
         const onAdd = (cantidad) => {
             setCompra(true);
             addItem(producto,cantidad,producto.precio);
+            toast.success('Se agrego '+ producto.name + " al carrito")
         }
 
         const respuesta = isInCart(producto.id);

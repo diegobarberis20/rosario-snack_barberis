@@ -5,6 +5,7 @@ import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter } from "react-router-dom";
 import { useState } from "react/cjs/react.development";
 import CartContext from "./components/CartContext";
+import { ToastContainer } from 'react-toastify';
 
 function App(){
 
@@ -21,7 +22,8 @@ function App(){
             <BrowserRouter>
                 <NavBar/>
                 <Main/>
-            </BrowserRouter>             
+                <ToastContainer autoClose="3000"/>                
+            </BrowserRouter>    
         </CartContext>
     )
 }
