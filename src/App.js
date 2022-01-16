@@ -1,9 +1,10 @@
-
 import NavBar from "./components/NavBar";
 import Main from "./components/Main";
 import ItemListContainer from "./components/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer";
 import { BrowserRouter } from "react-router-dom";
+import { useState } from "react/cjs/react.development";
+import CartContext from "./components/CartContext";
 
 function App(){
 
@@ -16,12 +17,12 @@ function App(){
                      }
 
     return (
-        <BrowserRouter>
-            <NavBar/>
-            <Main saludo={saludoInicial}></Main>
-            {/* <ItemListContainer/>
-            <ItemDetailContainer productoJSON={productoJSON}/> */}
-        </BrowserRouter>       
+        <CartContext>
+            <BrowserRouter>
+                <NavBar/>
+                <Main/>
+            </BrowserRouter>             
+        </CartContext>
     )
 }
 

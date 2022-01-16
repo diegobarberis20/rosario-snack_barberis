@@ -30,24 +30,18 @@ const ItemListContainer = () => {
         return (
             <>
                 <h1>Cargando...</h1>
- 
             </>
         )
     }else{
-
-         return (
-                <>                
-                    <div className="container">
-                        <div className="row">
+         return (              
+                <div className="container">
+                    <div className="row">
+                        
+                            <ItemList productos={productos} idCategoria={id}/>
                             
-                                <ItemList productos={productos} idCategoria={id}/>
-                                
-                        </div>
                     </div>
-                    
-                </>
+                </div>
             )     
-
     }
     
        

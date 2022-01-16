@@ -23,23 +23,21 @@ const ItemDetalContainer = ({productosJSON}) => {
     }, [id])
 
     if(loading){
-                return (
-                    <>
-                        <h1>Cargando...</h1> 
-                    </>
-                )
+        return (
+            <>
+                <h1>Cargando...</h1> 
+            </>
+        )
     }else{
-                return (    
-                            <>                  
-                                <div className="container">
-                                    <div className="row">
-                                        
-                                            <ItemDetail producto={producto} />
-                                            
-                                    </div>
-                                </div>                     
-                            </>       
-                    )               
+        return (                                            
+                <div className="container">
+                    <div className="row">
+                        
+                        <ItemDetail producto={producto} />
+                            
+                    </div>
+                </div>                                                   
+            )               
          }     
 }
 

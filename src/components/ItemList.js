@@ -5,28 +5,15 @@ const ItemList = ({productos, idCategoria}) => {
 
     return(
         productos.map((producto)=>{
-
-
              // Cuando se seleccionó una categoria
-            if(idCategoria == producto.categoria)
-            {
-                return (                           
-                    <Item producto={producto}/>                                 
-                )
-
-            }
-
-            // Cuando no se seleccionó una categoria
-            if(idCategoria == undefined)
+            if(idCategoria == producto.categoria || idCategoria == undefined)
             {
                 return (                           
                     <Item producto={producto}/>                                 
                 )
             }
-
         },[])
     )
- 
 }
 
 export default ItemList

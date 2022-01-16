@@ -1,15 +1,19 @@
 import ItemCount from "./ItemCount.js";
 import { useState } from "react";
+import { useContext } from "react";
+import { contexto } from "./CartContext";
 
 const ItemDetail = ({producto}) => {  
+
+        const { addItem } = useContext(contexto)
     
         const [compra,setCompra] = useState(false);
 
-        const onAdd = () => {
+        const onAdd = (cantidad) => {
             setCompra(true);
+            addItem(producto,cantidad,producto.precio);
         }
 
-        console.log(compra)
         if(compra)
         {
             return (
@@ -41,7 +45,7 @@ const ItemDetail = ({producto}) => {
                             <h1 className="mb-5">{producto.name}</h1>
                             <p className="mb-3">{producto.descripcion}</p>
                             <h3 className="mb-4">Precio: ${producto.precio}</h3>
-                            <ItemCount  stock={producto.stock} initial={1} onAdd={onAdd}/>                           
+                            <ItemCount  stock={producto.stock} initial={1} onAdd={onAdd} producto={producto}/>                           
                         </div>
                     </div>
                 </div>

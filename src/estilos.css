@@ -36,3 +36,16 @@
     width: auto;
     border-radius: 15px;
 }
+
+/* Estilos carrito */
+
+.fila-carrito{
+    background-color: rgb(239 236 236);
+    box-shadow: 5px 5px 5px -4px rgb(0 0 0 / 29%);
+    border-radius: 10px;
+}
+
+.imagen-carrito img{
+    height: 70px;
+    /* width: 50px; */
+}

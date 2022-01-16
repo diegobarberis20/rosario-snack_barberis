@@ -4,7 +4,7 @@ import productosJSON from "./../productos.json"
 import { Routes, Route } from "react-router-dom";
 import Carrito from "./Carrito";
 
-const Main = ({ saludo }) => {
+const Main = () => {
 
     // const productoJSON =  {
     //     "name": "Maní Cris Jor",
@@ -15,10 +15,6 @@ const Main = ({ saludo }) => {
 
     return (
         <main>
-
-            <h1>{saludo}</h1>
-            <h2>otro</h2>
-
             {/* RUTAS */}
             <Routes>
                 <Route path="/" element={<ItemListContainer/>}/>
