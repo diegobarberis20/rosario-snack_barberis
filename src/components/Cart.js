@@ -1,7 +1,7 @@
-import ItemDetailCarrito from "./ItemDetailCarrito";
 import { useContext } from "react";
 import { contexto } from "./CartContext";
 import ItemListCarrito from "./ItemListCarrito";
+import { Link } from "react-router-dom";
 
 const Carrito = () => {
 
@@ -19,6 +19,10 @@ const Carrito = () => {
                         <div className="col-12">
                             <h1 className="text-primary">Carrito de compras</h1>
                             <h4><i>No hay productos agregados al carrito</i></h4>
+                            <Link to="/">
+                                <button className="btn btn-warning mt-4">Seguir comprando</button>
+                            </Link>
+                            
                         </div>
                     </div>
                 </div>

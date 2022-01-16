@@ -1,3 +1,4 @@
+/* Navbar */
 .logo{
     height: 70px;
     width: auto;
@@ -5,15 +6,16 @@
     margin-right: 10px;
 }
 
+.cart-icon{
+    padding-right: 5px !important;
+}
 
 .titulo{
     color: white;
     margin-right: 15px;
 }
 
-.btn-acumulador{
-    width: 38px;
-}
+/* Detalle de producto */
 
 
 .contenedorProducto{
@@ -35,6 +37,10 @@
     height: auto;
     width: auto;
     border-radius: 15px;
+}
+
+.btn-count{
+    cursor: pointer;
 }
 
 /* Estilos carrito */

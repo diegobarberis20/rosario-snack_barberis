@@ -12,15 +12,11 @@ const CartContext = ({children}) => {
     const [cantidad_total,setCantidad_total] = useState(0);
     const [precio_total,setPrecio_total] = useState(0);
 
-    
     const addItem = (producto,cantidad,precio) => {
 
-        const found = carrito.filter(item => {
-           return item.name === producto.name
-        })
+        const resp = isInCart(producto.id)
 
-        if(found.length == 0){
-            
+        if(!resp){
             producto.cantidad = cantidad;
             setCarrito([...carrito,producto]);
             setCantidad_total(cantidad_total + cantidad);
@@ -41,6 +37,17 @@ const CartContext = ({children}) => {
         setCarrito(arr);
        
     };
+
+    const isInCart = (id) =>{
+        //Busco los datos del producto con el ID para setear los totales
+        const resultado = carrito.filter((item) => item.id == id);
+
+        if(resultado.length == 0){
+            return false
+        }else{
+            return true
+        }       
+    }
     
     const clear = () => {
         setCarrito([]);
@@ -55,6 +62,7 @@ const CartContext = ({children}) => {
         addItem,
         removeItem,
         clear,
+        isInCart
     }
     
     return (
