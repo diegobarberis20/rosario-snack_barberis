@@ -1,6 +1,5 @@
 import { createContext } from "react";
 import { useState } from "react/cjs/react.development";
-import { Children } from "react/cjs/react.production.min";
 
 export const contexto = createContext();
 
@@ -21,32 +20,24 @@ const CartContext = ({children}) => {
             setCarrito([...carrito,producto]);
             setCantidad_total(cantidad_total + cantidad);
             setPrecio_total(precio_total + (precio * cantidad));
-        }else{
-            console.log("ya esta")
         }
     };
     
     const removeItem = (id) => {
-        //Busco los datos del producto con el ID para setear los totales
         const resultado = carrito.filter((item) => item.id == id);
         setCantidad_total(cantidad_total - resultado[0].cantidad);
         setPrecio_total(precio_total - (resultado[0].precio * resultado[0].cantidad));
 
-        //Quito al producto del arreglo
         const arr = carrito.filter((item) => item.id !== id);
-        setCarrito(arr);
-       
+        setCarrito(arr);      
     };
 
     const isInCart = (id) =>{
-        //Busco los datos del producto con el ID para setear los totales
         const resultado = carrito.filter((item) => item.id == id);
 
-        if(resultado.length == 0){
-            return false
-        }else{
-            return true
-        }       
+        const respuesta = resultado.length === 0 ?  false : true;;
+
+        return respuesta;
     }
     
     const clear = () => {
@@ -64,6 +55,8 @@ const CartContext = ({children}) => {
         clear,
         isInCart
     }
+
+    console.log("Render context")
     
     return (
        <Provider value={valorContexto}>

@@ -1,9 +1,5 @@
 const ItemDetailCarrito = ({ producto, onDelete }) => {
 
-    // const quitarProducto = () => {
-    //     onDelete(producto.id);
-    // }
-
     return (
         <div className="row fila-carrito p-3 mb-3">
                 <div className="col-1 imagen-carrito">

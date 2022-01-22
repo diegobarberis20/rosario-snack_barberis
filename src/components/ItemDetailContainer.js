@@ -1,38 +1,55 @@
 import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { db } from "../firebase";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
-const ItemDetalContainer = ({productosJSON}) => {
+const ItemDetailContainer = ({productosJSON}) => {
 
     const [producto,setProducto] = useState(false);
     const [loading,setLoading] = useState(true);
     const {id} = useParams();
 
     useEffect(() => {
-        const promesa = new Promise((res,rej)=>{
-            setTimeout(() => {
-                    res(productosJSON);
-            }, 2000);
-        });
-        
-        promesa.then((productosJSON)=>{
-            const resultadoObtenido = productosJSON.find( item => item.id == id );
-            setLoading(false);
-            setProducto(resultadoObtenido)  
-        })
+
+        const collectionProductos = collection(db, "productos");
+        // const pedido = getDocs(collectionProductos)
+        const filtro = where("id","==",parseInt(id));
+        const consulta = query(collectionProductos, filtro);
+        const pedido = getDocs(consulta)
+
+        pedido
+            .then((resultado)=>{
+                const docs = resultado.docs
+                const resultadoObtenido = docs.map(doc => {   
+
+                                            const producto = {
+                                                idFirebase: doc.id,
+                                                ...doc.data()
+                                            }
+                                            return producto
+                })
+
+                setLoading(false);
+                setProducto(resultadoObtenido[0])  
+            })
+            .catch((error) => {
+                 console.log(error);
+            })
+
     }, [id])
 
     if(loading){
         return (
             <>
-                <h1>Cargando...</h1> 
+                <div className="lds-ripple h-100"><div></div><div></div></div>            
             </>
         )
     }else{
         return (                                            
                 <div className="container">
                     <div className="row">
-                        
+
                         <ItemDetail producto={producto} />
                             
                     </div>
@@ -41,4 +58,4 @@ const ItemDetalContainer = ({productosJSON}) => {
          }     
 }
 
-export default ItemDetalContainer
+export default ItemDetailContainer

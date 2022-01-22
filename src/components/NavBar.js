@@ -1,13 +1,13 @@
-
-import logoRosarioSnacks from '../assets/logoRosarioSnacks.jpg';
 import CardWidget from "./CardWidget.js";
 import Cart from "./Cart.js"
+import logoRosarioSnacks from '../assets/logoRosarioSnacks.jpg';
 import { Link } from "react-router-dom";
 
 function NavBar(){
     return (
         <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
             <div className="container-fluid">
+
                 <Link to="/">
                     <img src={logoRosarioSnacks} alt="" className='logo'/>  
                 </Link>    
@@ -26,8 +26,7 @@ function NavBar(){
                 <CardWidget className="order-1" carrito={<Cart/>}/>
                               
             </div>          
-        </nav>
-        
+        </nav>       
     )
 }
 

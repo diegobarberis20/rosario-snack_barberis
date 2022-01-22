@@ -1,31 +1,21 @@
 import ItemListContainer from "./ItemListContainer"
 import ItemDetailContainer from "./ItemDetailContainer";
+import Cart from "./Cart";
 import productosJSON from "./../productos.json"
 import { Routes, Route } from "react-router-dom";
-import Cart from "./Cart";
 
 const Main = () => {
 
-    // const productoJSON =  {
-    //     "name": "Maní Cris Jor",
-    //     "descripcion": "Estos son los mejores manies saborizados",
-    //     "imagen": "https://drive.google.com/uc?export=view&id=17g19-05CXrUKKIGYr6ktKSEm1k94-L7Y",
-    //     "precio": 150
-    // }
-
     return (
         <main>
-            {/* RUTAS */}
             <Routes>
                 <Route path="/" element={<ItemListContainer/>}/>
                 <Route path="/category/:id" element={<ItemListContainer/>}/>
                 <Route path="/item/:id" element={<ItemDetailContainer productosJSON={productosJSON}/>}/>
                 <Route path="/cart" element={<Cart/>}/>
             </Routes>
-
         </main>
-
-       
+      
     )
 }
 
