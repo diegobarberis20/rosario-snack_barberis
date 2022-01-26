@@ -3,10 +3,10 @@ import ItemDetailCarrito from "./ItemDetailCarrito";
 const ItemListCarrito = ({carrito, onDelete}) => {
    
     return (
-        carrito.map((item)=>{
+        carrito.map((item, indice)=>{
             return(
                 <div className="row justify-content-center">
-                    <ItemDetailCarrito producto={item} onDelete={onDelete} />
+                    <ItemDetailCarrito key={indice} producto={item} onDelete={onDelete} />
                 </div>
             )           
          })

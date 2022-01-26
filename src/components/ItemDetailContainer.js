@@ -2,9 +2,9 @@ import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, getDocs, query, where } from "firebase/firestore";
+import { collection, getDoc, doc, where } from "firebase/firestore";
 
-const ItemDetailContainer = ({productosJSON}) => {
+const ItemDetailContainer = () => {
 
     const [producto,setProducto] = useState(false);
     const [loading,setLoading] = useState(true);
@@ -13,25 +13,14 @@ const ItemDetailContainer = ({productosJSON}) => {
     useEffect(() => {
 
         const collectionProductos = collection(db, "productos");
-        // const pedido = getDocs(collectionProductos)
-        const filtro = where("id","==",parseInt(id));
-        const consulta = query(collectionProductos, filtro);
-        const pedido = getDocs(consulta)
+        const docRef = doc(collectionProductos,id);
+        const pedido = getDoc(docRef);
 
         pedido
             .then((resultado)=>{
-                const docs = resultado.docs
-                const resultadoObtenido = docs.map(doc => {   
-
-                                            const producto = {
-                                                idFirebase: doc.id,
-                                                ...doc.data()
-                                            }
-                                            return producto
-                })
 
                 setLoading(false);
-                setProducto(resultadoObtenido[0])  
+                setProducto(resultado.data());
             })
             .catch((error) => {
                  console.log(error);
@@ -40,10 +29,8 @@ const ItemDetailContainer = ({productosJSON}) => {
     }, [id])
 
     if(loading){
-        return (
-            <>
-                <div className="lds-ripple h-100"><div></div><div></div></div>            
-            </>
+        return (  
+                <div className="lds-ripple h-100"><div></div><div></div></div>              
         )
     }else{
         return (                                            

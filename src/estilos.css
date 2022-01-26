@@ -79,6 +79,10 @@
     height: 70px;
 }
 
+.totalCarrito{
+  padding-right: 10px !important;
+}
+
 /* Loader */
 .lds-ripple {
     display: inline-block;

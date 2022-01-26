@@ -55,8 +55,6 @@ const CartContext = ({children}) => {
         clear,
         isInCart
     }
-
-    console.log("Render context")
     
     return (
        <Provider value={valorContexto}>

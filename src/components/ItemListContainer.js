@@ -1,23 +1,27 @@
 import { useEffect, useState } from "react";
 import ItemList from "./ItemList";
-import productosJSON from "./../productos.json";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
-import { collection, getDocs } from "firebase/firestore";
-
+import { collection, getDocs, where, query } from "firebase/firestore";
 
 const ItemListContainer = () => {
 
-    // const productos = productosJSON;
     const [loading,setLoading] = useState(true);
     const {id} = useParams();
     const [productos, setProductos] = useState([])
 
     useEffect(() => {
 
-        const collectionProductos = collection(db, "productos");
-        const pedido = getDocs(collectionProductos)
-
+        if(id){
+            const collectionProductos = collection(db, "productos");
+            const filtro = where("categoria","==", parseInt(id)); 
+            const consulta = query(collectionProductos,filtro);
+            var pedido = getDocs(consulta);
+        }else{
+            const collectionProductos = collection(db, "productos");
+            var pedido = getDocs(collectionProductos);
+        }
+    
         pedido
             .then((resultado)=>{
                 const docs = resultado.docs
@@ -39,25 +43,19 @@ const ItemListContainer = () => {
  
     if(loading){
         return (
-            <>
                 <div className="lds-ripple h-100"><div></div><div></div></div>   
-            </>
         )
     }else{
-         return ( 
-             <>       
+         return (      
                 <div className="container my-5">
                     <div className="row">
                         
-                            <ItemList productos={productos} idCategoria={id}/>
+                            <ItemList productos={productos}/>
                             
                     </div>
-                </div>
-             </>   
+                </div>        
             )     
-    }
-    
-       
+         }         
 }
 
 export default ItemListContainer
