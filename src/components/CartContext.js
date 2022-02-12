@@ -24,7 +24,7 @@ const CartContext = ({children}) => {
     };
     
     const removeItem = (id) => {
-        const resultado = carrito.filter((item) => item.idFirebase == id);
+        const resultado = carrito.filter((item) => item.idFirebase === id);
         setCantidad_total(cantidad_total - resultado[0].cantidad);
         setPrecio_total(precio_total - (resultado[0].precio * resultado[0].cantidad));
 
@@ -33,7 +33,7 @@ const CartContext = ({children}) => {
     };
 
     const isInCart = (id) =>{
-        const resultado = carrito.filter((item) => item.idFirebase == id);
+        const resultado = carrito.filter((item) => item.idFirebase === id);
 
         const respuesta = resultado.length === 0 ?  false : true;;
 

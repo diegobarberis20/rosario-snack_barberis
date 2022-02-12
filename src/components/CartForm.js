@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser, faEnvelope, faAddressCard, faSortNumericDownAlt } from '@fortawesome/free-solid-svg-icons';
+import { faUser, faEnvelope, faAddressCard} from '@fortawesome/free-solid-svg-icons';
 import {  Navigate } from "react-router-dom";
 import { useContext } from 'react';
 import { useForm } from 'react-hook-form'
@@ -12,7 +12,7 @@ import $ from "jquery";
 
 const CardForm = ({ocultarForm}) => {
 
-        const {carrito,precio_total,removeItem,clear} = useContext(contexto);
+        const {carrito,precio_total,clear} = useContext(contexto);
 
         const { register, handleSubmit, formState: { errors } } = useForm();
 
@@ -22,8 +22,9 @@ const CardForm = ({ocultarForm}) => {
         const crearOrden = () => {
             const collectionProductos = collection(db, "productos");
 
-            carrito.map((item)=>{
+            
 
+            carrito.forEach((item)=>{
                 const nuevoStock = item.stock - item.cantidad;
                 updateDoc(doc(collectionProductos,item.idFirebase), {stock: nuevoStock})
             })
@@ -45,7 +46,9 @@ const CardForm = ({ocultarForm}) => {
             pedido
                 .then((respuesta) => {           
                     setCompraHecha(true);   
-                    toast.success("La compra fue realizada con exito! Su numero de orden es " + respuesta.id );
+                    toast.success("La compra fue realizada con exito! Su numero de orden es " + respuesta.id,
+                                 {autoClose: 4000} 
+                    );
                     clear();               
                 })
                 .catch((error) => {
