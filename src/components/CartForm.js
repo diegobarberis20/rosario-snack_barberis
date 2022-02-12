@@ -1,13 +1,12 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faEnvelope, faAddressCard} from '@fortawesome/free-solid-svg-icons';
 import {  Navigate } from "react-router-dom";
-import { useContext } from 'react';
+import { useContext, useState } from 'react';
 import { useForm } from 'react-hook-form'
 import { contexto } from "./CartContext";
 import { db } from "../firebase";
 import { addDoc, collection, doc, updateDoc} from "firebase/firestore";
 import { toast } from "react-toastify";
-import { useState } from 'react/cjs/react.development';
 import $ from "jquery";
 
 const CardForm = ({ocultarForm}) => {
