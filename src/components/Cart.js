@@ -61,8 +61,8 @@ const Carrito = () => {
 
                                         <button className="btn btn-outline-secondary" onClick={clear}>Vaciar el carrito</button>
                                         <div className="d-flex">
-                                            <h4 className="mt-2 m-0 totalCarrito">Total: ${precio_total}</h4>     
-                                            <button className="btn btn-success" onClick={ desplegarForm }><strong>Continuar compra</strong></button> 
+                                            <h4 className="mt-2 m-0 totalCarrito"><strong>Total: ${precio_total}</strong></h4>     
+                                            <button className="btn btn-success" onClick={ desplegarForm }>Continuar compra</button> 
                                         </div>                                
                                         
                                     </div>
