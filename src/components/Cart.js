@@ -24,11 +24,11 @@ const Carrito = () => {
 
     if(carrito.length === 0){
         return(    
-               <div className="container my-4">
-                    <div className="row">
-                        <div className="col-12">
+               <div className="container contenedorCart p-4 py-5 my-5">
+                    <div className="row justify-content-center">
+                        <div className="col-12 text-center">
 
-                            <h1 className="text-primary">Carrito de compras</h1>
+                            <h1 className="text-primary"><strong>Carrito de compras</strong></h1>
                             <h4><i>No hay productos agregados al carrito</i></h4>
                             <Link to="/">
                                 <button className="btn btn-warning mt-4">Seguir comprando</button>
