@@ -1,16 +1,17 @@
-html, body, #app, #app>div, #root, main{
+html, body, #app, #app>div, #root{
   height: 100%
 }
 
 main{
-  padding-top: 76px;
+  height: auto;
+  padding-top: 65px;
+  padding-bottom: 65px;
 }
 
 body{
   font-family: Architecs;
   background-image: url('./assets/fondoRosarioSnack.jpg');
-  background-repeat: no-repeat;
-  background-size: cover;
+  background-size:auto;
 }
 
 @font-face {
@@ -74,11 +75,10 @@ body{
 }
 
 .footer{
-  position: absolute;
-  bottom: 0;
+  position:fixed;
+  bottom:0;
   height: 40px;
 }
-
 
 .productoCard{
   width: 70%;
@@ -92,6 +92,18 @@ body{
   background-color: #212529;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+}
+
+.productoCard .card-img-top{
+  height: 200px;
+  object-fit: cover;
+}
+
+@media(min-width:720px){ 
+  .productoCard .card-img-top{
+    height: 250px;
+    object-fit: cover;
+  }
 }
 
 .contenedorProductoMayor{
