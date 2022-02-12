@@ -48,7 +48,7 @@ const Carrito = () => {
 
                                 <div className="row">
                                     <div className="col-12">
-                                        <h1 className="text-dark mb-3">Carrito de compras</h1>
+                                        <h1 className="text-dark mb-3"><strong>Carrito de compras</strong></h1>
                                     </div>  
                                 </div>
 
