@@ -97,6 +97,7 @@ body{
 .productoCard .card-img-top{
   height: 200px;
   object-fit: cover;
+  box-shadow: 2px 2px 2px 0px rgba(217,216,216,0.75);
 }
 
 @media(min-width:720px){ 
