@@ -3,6 +3,7 @@ import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
 import { db } from "../firebase";
 import { collection, getDocs, where, query } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const ItemListContainer = () => {
 
@@ -12,14 +13,16 @@ const ItemListContainer = () => {
 
     useEffect(() => {
 
+        let pedido;
+
         if(id){
             const collectionProductos = collection(db, "productos");
             const filtro = where("categoria","==", parseInt(id)); 
             const consulta = query(collectionProductos,filtro);
-            var pedido = getDocs(consulta);
+            pedido = getDocs(consulta);
         }else{
             const collectionProductos = collection(db, "productos");
-            var pedido = getDocs(collectionProductos);
+            pedido = getDocs(collectionProductos);
         }
     
         pedido
@@ -36,14 +39,16 @@ const ItemListContainer = () => {
                 setLoading(false);
             })
             .catch((error) => {
-                console.log(error);
+                toast.error(error);
             })
 
     }, [id])
  
     if(loading){
         return (
-                <div className="lds-ripple h-100"><div></div><div></div></div>   
+            <div className="container-fluid fondoLoading h-100 w-100 mx-0">
+                 <div className="lds-ripple"><div></div><div></div></div>  
+            </div>  
         )
     }else{
          return (      

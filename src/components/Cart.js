@@ -1,18 +1,19 @@
 import ItemListCarrito from "./ItemListCarrito";
-import { useContext } from "react";
+import CardForm from "./CartForm";
+import { useContext, useState } from "react";
 import { contexto } from "./CartContext";
-import { Link, useNavigate } from "react-router-dom";
-import { db } from "../firebase";
-import { addDoc, collection} from "firebase/firestore";
-import { toast } from "react-toastify";
-
+import { Link } from "react-router-dom";
 
 const Carrito = () => {
 
-    const navigate = useNavigate()
+    const [mostrarForm, setMostrarForm] = useState(false);
 
-    const redirect = () => {
-        navigate("/");
+    const desplegarForm = () => {
+        setMostrarForm(true);
+    }
+
+    const ocultarForm = () =>{
+        setMostrarForm(false);
     }
 
     const {carrito,precio_total,removeItem,clear} = useContext(contexto);
@@ -21,28 +22,6 @@ const Carrito = () => {
         removeItem(id)
     }
 
-    const crearOrden = () =>{
-
-        const coleccionOrdenes = collection(db, "ordenes");
-        const orden = {
-              usuario : "Diego",
-              carrito: carrito,
-              precio_total: precio_total
-        }
-
-        const pedido = addDoc(coleccionOrdenes, orden);
-
-        pedido
-            .then((respuesta) => {
-                clear();
-                toast.success("La compra fue realizada con exito! Su numero de orden es " + respuesta.id );
-                redirect(); 
-            })
-            .catch((error) => {
-                console.log(error)
-            })
-    }
- 
     if(carrito.length === 0){
         return(    
                <div className="container my-4">
@@ -60,38 +39,45 @@ const Carrito = () => {
                 </div>
         )
     }else{
-        return(      
-                <div className="container contenedorCart p-4 my-5">
-                    <div className="row justify-content-center">
-                        <div className="col-12">
 
-                            <div className="row">
-                                <div className="col-12">
-                                    <h1 className="text-dark mb-3">Carrito de compras</h1>
-                                </div>  
-                            </div>
+        if(!mostrarForm)
+            return(  
+                    <div className="container contenedorCart p-4 my-5">
+                        <div className="row justify-content-center">
+                            <div className="col-12">
 
-                            <div className="row justify-content-center">
-                                <ItemListCarrito carrito={carrito} onDelete={onDelete}/>
-                            </div>               
-
-                            <div className="row mt-3">
-                                <div className="col-12 d-flex justify-content-between">
-
-                                    <button className="btn btn-warning" onClick={clear}>Vaciar el carrito</button>
-                                    <div className="d-flex">
-                                        <h4 className="mt-2 m-0 totalCarrito">Total: ${precio_total}</h4>     
-                                        <button className="btn btn-success" onClick={crearOrden}>Terminar compra</button> 
-                                    </div>
-                                    
-                                    
+                                <div className="row">
+                                    <div className="col-12">
+                                        <h1 className="text-dark mb-3">Carrito de compras</h1>
+                                    </div>  
                                 </div>
-                            </div>    
 
+                                <div className="row justify-content-center">
+                                    <ItemListCarrito carrito={carrito} onDelete={onDelete}/>
+                                </div>               
+
+                                <div className="row mt-3">
+                                    <div className="col-12 d-flex justify-content-between">
+
+                                        <button className="btn btn-outline-secondary" onClick={clear}>Vaciar el carrito</button>
+                                        <div className="d-flex">
+                                            <h4 className="mt-2 m-0 totalCarrito">Total: ${precio_total}</h4>     
+                                            <button className="btn btn-success" onClick={ desplegarForm }><strong>Continuar compra</strong></button> 
+                                        </div>                                
+                                        
+                                    </div>
+                                </div>    
+
+                            </div>
                         </div>
-                    </div>
-                </div>             
-        )}
+                    </div>  
+            )
+        else{
+            return(
+                <CardForm ocultarForm={ ocultarForm }/>
+            )
+        }
+    }
 }
 
 export default Carrito

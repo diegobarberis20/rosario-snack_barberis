@@ -2,7 +2,8 @@ import ItemDetail from "./ItemDetail";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { db } from "../firebase";
-import { collection, getDoc, doc, where } from "firebase/firestore";
+import { collection, getDoc, doc } from "firebase/firestore";
+import { toast } from "react-toastify";
 
 const ItemDetailContainer = () => {
 
@@ -19,23 +20,30 @@ const ItemDetailContainer = () => {
         pedido
             .then((resultado)=>{
 
+                const producto = {
+                    idFirebase: resultado.id,
+                    ...resultado.data()
+                }
+
                 setLoading(false);
-                setProducto(resultado.data());
+                setProducto(producto);
             })
             .catch((error) => {
-                 console.log(error);
+                toast.error(error);
             })
 
     }, [id])
 
     if(loading){
-        return (  
-                <div className="lds-ripple h-100"><div></div><div></div></div>              
+        return ( 
+            <div className="container-fluid fondoLoading h-100 w-100 mx-0">
+                    <div className="lds-ripple"><div></div><div></div></div>  
+            </div>                   
         )
     }else{
         return (                                            
-                <div className="container">
-                    <div className="row">
+                <div className="container contenedorProductoMayor">
+                    <div className="row h-100">
 
                         <ItemDetail producto={producto} />
                             

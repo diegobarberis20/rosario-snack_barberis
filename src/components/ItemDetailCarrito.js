@@ -22,7 +22,7 @@ const ItemDetailCarrito = ({ producto, onDelete }) => {
                     <span>${producto.precio * producto.cantidad}</span>
                 </div>  
                 <div className="col-1 d-flex align-items-center justify-content-end">
-                    <button className="btn btn-danger" onClick={()=>{onDelete(producto.id)}}>Quitar</button>
+                    <button className="btn btn-danger" onClick={()=>{onDelete(producto.idFirebase)}}>Quitar</button>
                 </div>    
         </div>
     )

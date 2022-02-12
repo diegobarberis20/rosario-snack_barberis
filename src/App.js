@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import CartContext from "./components/CartContext";
 import { ToastContainer } from 'react-toastify';
 
+
 function App(){
 
     return (
@@ -11,7 +12,7 @@ function App(){
             <BrowserRouter>
                 <NavBar/>
                 <Main/>
-                <ToastContainer autoClose="2000"/>                
+                <ToastContainer autoClose="2000"/>    
             </BrowserRouter>    
         </CartContext>
     )

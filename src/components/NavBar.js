@@ -1,11 +1,12 @@
 import CardWidget from "./CardWidget.js";
 import Cart from "./Cart.js"
 import logoRosarioSnacks from '../assets/logoRosarioSnacks.jpg';
-import { Link } from "react-router-dom";
+import { Link, NavLink} from "react-router-dom";
 
 function NavBar(){
+    
     return (
-        <nav className="navbar navbar-expand-sm navbar-dark bg-dark">
+        <nav className="navbar navbar-expand-sm navbar-dark bg-dark fixed-top">
             <div className="container-fluid">
 
                 <Link to="/">
@@ -16,11 +17,12 @@ function NavBar(){
                      <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse text-light" id="navbarNavAltMarkup">
-                <div className="navbar-nav text-light">
-                    <Link className="nav-link active" aria-current="page" to="category/1">Cris Jor</Link>
-                    <Link className="nav-link" to="/category/2">Krachitos</Link>
-                    <Link className="nav-link" to="contacto">Contacto</Link>
-                </div>
+                    <div className="navbar-nav text-light">
+                
+                        <NavLink exact={true}className="nav-link"  activeClassName='is-active' to='category/1'>Cris Jor</NavLink>
+                        <NavLink className="nav-link" activeClassName='is-active' to='category/2'>Krachitos</NavLink>
+                
+                    </div>
                 </div>
                 
                 <CardWidget className="order-1" carrito={<Cart/>}/>
