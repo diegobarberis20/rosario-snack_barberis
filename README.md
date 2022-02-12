@@ -1,3 +1,5 @@
+[![Netlify Status](https://api.netlify.com/api/v1/badges/a5b2b0e5-e362-4dce-acf9-49eab80e3dac/deploy-status)](https://app.netlify.com/sites/rosario-snack/deploys)
+
 # Descripción del proyecto
 Este proyecto es un e-commerce para la empresa Rosario Snack, la cual comercializa productos de copetín.
 
