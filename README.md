@@ -28,6 +28,6 @@ El mismo redireccionará a su despliegue en Netlify. De base se utilizó: HTML5,
 * Se utilizó Firebase para creación e integración de Base de Datos.
 
 # Sobre el proyecto:
-Profesor: Horacio Gutierrez
-Tutor: Patricio Pallua
-Alumno: Diego Barberis
+* Profesor: Horacio Gutierrez
+* Tutor: Patricio Pallua
+* Alumno: Diego Barberis
