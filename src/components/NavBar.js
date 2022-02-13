@@ -17,11 +17,10 @@ function NavBar(){
                      <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse text-light" id="navbarNavAltMarkup">
-                    <div className="navbar-nav text-light">
-                
+                    <div className="navbar-nav text-light">              
                         <NavLink exact={true}className="nav-link"  activeClassName='is-active' to='category/1'>Cris Jor</NavLink>
                         <NavLink className="nav-link" activeClassName='is-active' to='category/2'>Krachitos</NavLink>
-                
+                        <NavLink className="nav-link" activeClassName='is-active' to='category/3'>Pepsico</NavLink>
                     </div>
                 </div>
                 

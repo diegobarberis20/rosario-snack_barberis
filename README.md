@@ -7,7 +7,7 @@ El proyecto esta realizado en React basandose en la enseñanzas aprendidas en el
 
 
 # ¿Qué es Rosario Snacks?
-Rosario Snack es una distribuidora de productos de copetin ubicada en la ciudad de rosario. Como principales marcas comercializan Cris Jor (vendedor exclusivo en Rosario) y Krachitos.
+Rosario Snack es una distribuidora de productos de copetin ubicada en la ciudad de rosario. Como principales marcas comercializan Cris Jor (vendedor exclusivo en Rosario), Krachitos y Pepsico.
 
 # Descripción de las tecnologías utilizadas
 Este sitio fue creado con Create React App. Se debe correr con "npm start" desde consola para poder visualizarse o hacer click en el siguiente link:
